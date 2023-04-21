@@ -18,9 +18,17 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+        # lines
         pygame.draw.rect(screen, 'white', (395,0, 10, 1200))
         pygame.draw.rect(screen, 'white', (795, 0, 10, 1200))
         pygame.draw.rect(screen, 'white', (0, 395, 1200, 10))
         pygame.draw.rect(screen, 'white', (0, 795, 1200, 10))
+
+
+        #drawing a x
+        '''pygame.draw.line(screen, 'white', [100, 100], [200, 200], 10)
+        pygame.draw.line(screen, 'white', [200,100], [100, 200], 10)'''
+        #drawing a cricle
+        '''pygame.draw.circle(screen, 'white', [600, 200], 100, 10)'''
     pygame.display.flip()
 pygame.quit()
