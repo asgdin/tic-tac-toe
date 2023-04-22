@@ -3,15 +3,25 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode([1200, 1200])
 
+square1 = pygame.Rect(0,0, 400, 400)
+square2 = pygame.Rect(400, 0, 400, 400)
+square3 = pygame.Rect(800,0, 400, 400)
+square4 = pygame.Rect(0, 400, 400, 400)
+square5 = pygame.Rect(400,400, 400, 400)
+square6 = pygame.Rect(800, 400, 400, 400)
+square7 = pygame.Rect(0,800, 400, 400)
+square8 = pygame.Rect(400, 800, 400, 400)
+square9 = pygame.Rect(800,800, 400, 400)
 
-class Button(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
-        self.x = x
-        self.y = y
-
-    def draw(self):
-        button_rect = pygame.rect.Rect((self.x, self.y), (400, 400))
+x_or_o = 0
+def X_or_o(x, y):
+    global x_or_o
+    if x_or_o % 2 == 0:
+        pygame.draw.line(screen,'white', [x + 100, y + 100], [x + 200, y + 200], 10)
+        pygame.draw.line(screen, 'white', [x + 200, y + 100], [x + 100, y + 200], 10)
+        x_or_o += 1
+    else:
+        pygame.draw.circle(screen, 'white', [x + 200, y + 200], 100, 10)
 
 while True:
 
@@ -25,10 +35,7 @@ while True:
         pygame.draw.rect(screen, 'white', (0, 795, 1200, 10))
 
 
-        #drawing a x
-        '''pygame.draw.line(screen, 'white', [100, 100], [200, 200], 10)
-        pygame.draw.line(screen, 'white', [200,100], [100, 200], 10)'''
-        #drawing a cricle
-        '''pygame.draw.circle(screen, 'white', [600, 200], 100, 10)'''
+        pygame.draw.rect(screen, 'white', square9)
+
     pygame.display.flip()
 pygame.quit()
